@@ -1,115 +1,8 @@
-// import { useEffect, useState, useRef } from 'react'
-// import styled from 'styled-components'
-// import VisuallyHidden from '@/components/VisuallyHidden'
-// import Dialog from '@/components/Dialog'
-// import SearchResults from './SearchResults'
-// import Nav from './Nav'
+'use client'
 
-// const CommandBar = ({ children }) => {
-//   const [query, setQuery] = useState('')
-//   const [results, setResults] = useState([])
-//   const [dialogIsOpen, setDialogIsOpen] = useState(false)
-
-//   const searchInputRef = useRef<HTMLInputElement>(null)
-
-//   useEffect(() => {
-//     function handleKeyDown(event) {
-//       if (
-//         (event.metaKey && event.key === 'k') || // For macOS (Command+K)
-//         (event.ctrlKey && event.key === 'k') // For Windows/Linux (Ctrl+K)
-//       ) {
-//         setDialogIsOpen(true)
-//       }
-//     }
-
-//     document.addEventListener('keydown', handleKeyDown)
-
-//     return () => document.removeEventListener('keydown', handleKeyDown)
-//   }, [])
-
-//   useEffect(() => {
-//     if (window.pagefind) {
-//       console.log('Pagefind is loaded in useEffect.')
-//     } else {
-//       console.log('Pagefind is not loaded in useEffect.')
-//     }
-//   }, [])
-
-//   async function handleSearch(e) {
-//     e.preventDefault()
-//     console.log('Search initiated with query:', query)
-
-//     if (window.pagefind) {
-//       console.log('Pagefind is loaded.')
-//       const search = await window.pagefind.debouncedSearch(query)
-//       console.log('Search results:', search)
-//       setResults(search.results)
-//     } else {
-//       console.log('Pagefind is not loaded.')
-//     }
-//   }
-
-//   return (
-//     <Dialog
-//       open={dialogIsOpen}
-//       onOpenChange={() => setDialogIsOpen(!dialogIsOpen)}
-//       srTitle='Search and explore'
-//       srDescription='Find content by searching, or follow navigation links.'
-//       trigger={children}
-//     >
-//       <>
-//         <search>
-//           <form onSubmit={handleSearch}>
-//             <VisuallyHidden>
-//               <label htmlFor='search'>Search</label>
-//             </VisuallyHidden>
-//             <StyledInput
-//               type='text'
-//               id='search'
-//               placeholder='Search the site'
-//               ref={searchInputRef}
-//               value={query}
-//               onChange={e => setQuery(e.target.value)}
-//               onInput={handleSearch}
-//             />
-//           </form>
-//         </search>
-//         {query ? (
-//           <SearchResults
-//             results={results}
-//             handleClick={() => setDialogIsOpen(false)}
-//           />
-//         ) : (
-//           <Nav handleClick={() => setDialogIsOpen(false)} />
-//         )}
-//       </>
-//     </Dialog>
-//   )
-// }
-
-// const StyledInput = styled.input`
-//   width: calc(100% - 52px);
-//   background-color: #fff;
-//   border: 2px solid #000;
-//   border-radius: 4px;
-//   padding: 8px;
-//   font-family: 'Inter', sans-serif;
-//   font-size: 0.875rem;
-//   font-weight: 700;
-
-//   &::placeholder {
-//     color: #000;
-//     opacity: 0.75;
-//   }
-// `
-
-// export default CommandBar
-
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, ChangeEvent } from 'react'
 import styled from 'styled-components'
-import VisuallyHidden from '@/components/VisuallyHidden'
 import Dialog from '@/components/Dialog'
-import SearchResults from './SearchResults'
 import Nav from './Nav'
 
 const CommandBar = ({ children }) => {
@@ -120,7 +13,7 @@ const CommandBar = ({ children }) => {
   const searchInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: KeyboardEvent) {
       if (
         (event.metaKey && event.key === 'k') || // For macOS (Command+K)
         (event.ctrlKey && event.key === 'k') // For Windows/Linux (Ctrl+K)
@@ -142,13 +35,14 @@ const CommandBar = ({ children }) => {
     }
   }, [])
 
-  async function handleSearch(e) {
+  const handleSearch = async (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
-    console.log('Search initiated with query:', query)
+    setQuery(e.target.value)
+    console.log('Search initiated with query:', e.target.value)
 
     if (window.pagefind) {
       console.log('Pagefind is loaded.')
-      const search = await window.pagefind.debouncedSearch(query)
+      const search = await window.pagefind.debouncedSearch(e.target.value)
       console.log('Search results:', search)
       setResults(search.results)
     } else {
@@ -156,58 +50,95 @@ const CommandBar = ({ children }) => {
     }
   }
 
+  const handleDialogChange = () => {
+    setDialogIsOpen(!dialogIsOpen)
+    if (dialogIsOpen) {
+      setQuery('')
+      setResults([])
+    }
+  }
+
   return (
     <Dialog
       open={dialogIsOpen}
-      onOpenChange={() => setDialogIsOpen(!dialogIsOpen)}
+      onOpenChange={handleDialogChange}
       srTitle='Search and explore'
       srDescription='Find content by searching, or follow navigation links.'
       trigger={children}
     >
-      <>
-        <search>
-          <form onSubmit={handleSearch}>
-            <VisuallyHidden>
-              <label htmlFor='search'>Search</label>
-            </VisuallyHidden>
-            <StyledInput
-              type='text'
-              id='search'
-              placeholder='Search the site'
-              ref={searchInputRef}
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              onInput={handleSearch}
-            />
-          </form>
-        </search>
-        {query ? (
-          <SearchResults
-            results={results}
-            handleClick={() => setDialogIsOpen(false)}
+      <div className='rounded-lg border shadow-md'>
+        <div className='flex items-center border-b px-3'>
+          <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
+          <input
+            type='text'
+            placeholder='Type a command or search...'
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            onInput={handleSearch}
+            className='flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50'
           />
-        ) : (
-          <Nav handleClick={() => setDialogIsOpen(false)} />
-        )}
-      </>
+        </div>
+        <div className='max-h-[300px] overflow-y-auto overflow-x-hidden'>
+          {query ? (
+            results.length > 0 ? (
+              <div className='p-1'>
+                <h3 className='px-2 py-1.5 text-xs font-medium text-muted-foreground'>
+                  Results
+                </h3>
+                {results.map(result => (
+                  <div
+                    key={result.id}
+                    className='relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground'
+                  >
+                    <ResultRow
+                      result={result}
+                      handleClick={() => setDialogIsOpen(false)}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className='py-6 text-center text-sm'>No results found.</div>
+            )
+          ) : (
+            <Nav handleClick={() => setDialogIsOpen(false)} />
+          )}
+        </div>
+      </div>
     </Dialog>
   )
 }
 
-const StyledInput = styled.input`
-  width: calc(100% - 52px);
-  background-color: #fff;
-  border: 2px solid #000;
-  border-radius: 4px;
-  padding: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 700;
+const ResultRow = ({ result, handleClick }) => {
+  const [data, setData] = useState(null)
+  const [url, setUrl] = useState('')
 
-  &::placeholder {
-    color: #000;
-    opacity: 0.75;
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const data = await result.data()
+      console.log('Result data fetched:', data)
+      setData(data)
+
+      const path = data.url.match(/\/([^/]+)\.html$/)
+      const url = path ? path[1] : ''
+      setUrl(url)
+    }
+
+    fetchData()
+  }, [result])
+
+  if (!data || !url) return null
+
+  return (
+    <a href={url} onClick={handleClick}>
+      <h3>{data.meta.title}</h3>
+      <p dangerouslySetInnerHTML={{ __html: data.excerpt }} />
+    </a>
+  )
+}
+
+const MagnifyingGlassIcon = styled.span`
+  // Add your own SVG or icon component here
 `
 
 export default CommandBar
