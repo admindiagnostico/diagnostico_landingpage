@@ -9,6 +9,9 @@ export default function Header() {
           <li>
             <Link href='/'>Home</Link>
           </li>
+          <li>
+            <Link href='/About'>About</Link>
+          </li>
         </ul>
 
         <ThemeToggle />

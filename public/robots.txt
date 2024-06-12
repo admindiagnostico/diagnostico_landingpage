@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://petemillspaugh.com
+
+# Sitemaps
+Sitemap: https://petemillspaugh.com/sitemap.xml
