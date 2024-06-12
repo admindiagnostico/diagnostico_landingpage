@@ -27,12 +27,25 @@
 //     return () => document.removeEventListener('keydown', handleKeyDown)
 //   }, [])
 
+//   useEffect(() => {
+//     if (window.pagefind) {
+//       console.log('Pagefind is loaded in useEffect.')
+//     } else {
+//       console.log('Pagefind is not loaded in useEffect.')
+//     }
+//   }, [])
+
 //   async function handleSearch(e) {
 //     e.preventDefault()
+//     console.log('Search initiated with query:', query)
 
 //     if (window.pagefind) {
+//       console.log('Pagefind is loaded.')
 //       const search = await window.pagefind.debouncedSearch(query)
+//       console.log('Search results:', search)
 //       setResults(search.results)
+//     } else {
+//       console.log('Pagefind is not loaded.')
 //     }
 //   }
 
@@ -91,6 +104,7 @@
 // `
 
 // export default CommandBar
+
 import { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import VisuallyHidden from '@/components/VisuallyHidden'
