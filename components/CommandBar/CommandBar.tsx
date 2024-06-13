@@ -71,7 +71,7 @@ const CommandBar = ({ children }) => {
           <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
           <input
             type='text'
-            placeholder='Type a command or search...'
+            placeholder='Typeeee a command or search...'
             value={query}
             onChange={e => setQuery(e.target.value)}
             onInput={handleSearch}
