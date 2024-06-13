@@ -1,55 +1,6 @@
-// 'use client'
-// import React from 'react'
-// import styled from 'styled-components'
-// import CommandBar from '@/components/CommandBar/CommandBar'
-
-// export default function Home() {
-//   return (
-//     <section className='py-24'>
-//       <div className='container'>
-//         <h1 className='text-3xl font-bold'>Next shadcn starter</h1>
-//         <CommandBar>
-//           <SearchButton>
-//             Search / Explore
-//             <ShortcutHint>⌘ + K</ShortcutHint>
-//           </SearchButton>
-//         </CommandBar>
-//       </div>
-//     </section>
-//   )
-// }
-
-// const SearchButton = styled.button`
-//   padding: 8px 16px;
-//   background-color: #000;
-//   color: #fff;
-//   border: none;
-//   border-radius: 4px;
-//   font-size: 1rem;
-//   font-weight: 700;
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-
-//   &:hover {
-//     background-color: #333;
-//   }
-
-//   &:focus {
-//     outline: none;
-//   }
-// `
-
-// const ShortcutHint = styled.span`
-//   margin-left: 8px;
-//   font-size: 0.875rem;
-//   color: #ccc;
-// `
-
 'use client'
 
 import React from 'react'
-import CommandBar from '@/components/CommandBar/CommandBar'
 import styled from 'styled-components'
 
 export default function Home() {
@@ -57,13 +8,6 @@ export default function Home() {
     <section className='py-24'>
       <div className='container'>
         <h1 className='text-3xl font-bold'>Next shadcn starter</h1>
-        <CommandBar>
-          <SearchButton>
-            <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
-            Search / Explore
-            <ShortcutHint>⌘ + K</ShortcutHint>
-          </SearchButton>
-        </CommandBar>
       </div>
     </section>
   )
@@ -128,3 +72,104 @@ const ShortcutHint = styled.span`
   font-size: 0.875rem;
   color: #999;
 `
+
+// 'use client'
+
+// import { motion } from 'framer-motion'
+// import { LampContainer } from '@/components/ui/lamp'
+// import { Header1 } from '@/blocks/header/header1'
+// import { Hero4 } from '@/blocks/hero/hero4'
+// import { Feature6 } from '@/blocks/feature/feature6'
+// import { FAQ1 } from '@/blocks/faq/faq1'
+// import { SparklesCore } from '@/components/ui/sparkles'
+// import { useMediaQuery } from 'react-responsive'
+// import { Button } from '@/components/ui/button'
+// import CommandBar from '@/components/CommandBar/CommandBar'
+
+// export default function Home() {
+//   const isMediumDevice = useMediaQuery({ query: '(min-width: 768px)' })
+//   const isLargeDevice = useMediaQuery({ query: '(min-width: 1024px)' })
+
+//   let initialValues = { opacity: 0.5, y: 500 }
+//   let whileInViewValues = { opacity: 1, y: 300 }
+
+//   if (isMediumDevice) {
+//     initialValues = { opacity: 0.5, y: 400 }
+//     whileInViewValues = { opacity: 1, y: 100 }
+//   }
+
+//   if (isLargeDevice) {
+//     initialValues = { opacity: 0.5, y: 500 }
+//     whileInViewValues = { opacity: 1, y: 300 }
+//   }
+
+//   return (
+//     <>
+//       <Header1 />
+//          <CommandBar>
+//            <SearchButton>
+//              <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
+//              Search / Explore
+//              <ShortcutHint>⌘ + K</ShortcutHint>
+//            </SearchButton>
+//          </CommandBar>
+//       <LampContainer>
+//         <motion.div
+//           initial={initialValues}
+//           whileInView={whileInViewValues}
+//           transition={{
+//             delay: 0.3,
+//             duration: 0.8,
+//             ease: 'easeInOut'
+//           }}
+//           className='mt-10 flex flex-col items-center bg-gradient-to-br from-slate-200 to-slate-500 bg-clip-text py-4 text-4xl font-medium tracking-tight text-transparent md:mt-1 md:text-7xl'
+//         >
+//           Diagnostico SRL
+//         </motion.div>
+//         <motion.div
+//           initial={initialValues}
+//           whileInView={whileInViewValues}
+//           transition={{
+//             delay: 0.3,
+//             duration: 0.8,
+//             ease: 'easeInOut'
+//           }}
+//           className='mt-5 flex flex-col items-center bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text py-2 tracking-tight text-transparent md:mt-0 md:text-4xl lg:text-2xl'
+//         >
+//           <p>Laboratorio de Anatomía Patológica</p>
+//           <Button className='mt-8 text-white' variant='outline'>
+//             Contacto
+//           </Button>
+//         </motion.div>
+//         <SparklesCore
+//           background='transparent'
+//           minSize={0.1}
+//           maxSize={0.4}
+//           particleDensity={1200}
+//           className='lg:mt-30 absolute inset-0 h-full w-full [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)] md:mt-20'
+//           particleColor='#FFFFFF'
+//         />
+//       </LampContainer>
+//       <Hero4 />
+//       <Feature6 />
+//       <FAQ1 />
+//     </>
+//   )
+// }
+
+// export default function Home() {
+//   return (
+//     <section className='py-24'>
+//       <div className='container'>
+//         <h1 className='text-3xl font-bold'>Next shadcn starter</h1>
+//         <CommandBar>
+//           <SearchButton>
+//             <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
+//             Search / Explore
+//             <ShortcutHint>⌘ + K</ShortcutHint>
+//           </SearchButton>
+//         </CommandBar>
+//       </div>
+//     </section>
+//   )
+// }
