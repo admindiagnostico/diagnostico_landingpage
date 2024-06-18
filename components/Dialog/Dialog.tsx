@@ -1,7 +1,7 @@
-import * as RadixDialog from "@radix-ui/react-dialog";
-import VisuallyHidden from "@/components/VisuallyHidden";
-import styled, { keyframes } from "styled-components";
-import CloseIcon from "./CloseIcon";
+import * as RadixDialog from '@radix-ui/react-dialog'
+import VisuallyHidden from '@/components/VisuallyHidden'
+import styled, { keyframes } from 'styled-components'
+import CloseIcon from './CloseIcon'
 
 const Dialog = ({
   open,
@@ -9,14 +9,14 @@ const Dialog = ({
   srTitle,
   srDescription,
   trigger,
-  children,
+  children
 }: {
-  open: boolean;
-  onOpenChange: () => void;
-  srTitle: string;
-  srDescription: string;
-  trigger: JSX.Element;
-  children: JSX.Element;
+  open: boolean
+  onOpenChange: () => void
+  srTitle: string
+  srDescription: string
+  trigger: JSX.Element
+  children: JSX.Element
 }) => (
   <RadixDialog.Root open={open} onOpenChange={onOpenChange}>
     <RadixDialog.Trigger asChild>{trigger}</RadixDialog.Trigger>
@@ -39,29 +39,31 @@ const Dialog = ({
       </Content>
     </RadixDialog.Portal>
   </RadixDialog.Root>
-);
+)
 
 const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
-`;
+`
 
 const fadeOut = keyframes`
   from { opacity: 1; }
   to { opacity: 0; }
-`;
+`
 
 const Overlay = styled(RadixDialog.Overlay)`
+  z-index: 9998; // ANIBAL: esto lo hice para que el header1 estuviera blured
+
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
+  background-color: rgba(1, 5, 25, 0.9); // ACA
+  // backdrop-filter: blur(3px);
   animation: ${fadeIn} 300ms ease-in-out;
 
-  &[data-state="closed"] {
+  &[data-state='closed'] {
     animation: ${fadeOut} 300ms ease-in-out;
   }
-`;
+`
 
 const slideIn = keyframes`
   from {
@@ -72,9 +74,11 @@ const slideIn = keyframes`
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
-`;
+`
 
 const Content = styled(RadixDialog.Content)`
+  z-index: 9999; // ANIBAL: esto lo hice para que el header1 estuviera blured
+
   position: fixed;
   top: 50%;
   left: 50%;
@@ -82,13 +86,13 @@ const Content = styled(RadixDialog.Content)`
   width: 90vw;
   max-width: 450px;
   max-height: 85vh;
-  background-color: ${(p) => p.theme.primaryBg};
-  border: 2px solid ${(p) => p.theme.textColor};
+  background-color: ${p => p.theme.primaryBg};
+  // border: 2px solid ${p => p.theme.textColor}; //ACA
   border-radius: 4px;
   padding: 16px;
   animation: ${slideIn} 300ms ease-out;
   overflow-y: auto;
-`;
+`
 
 const Close = styled(RadixDialog.Close)`
   all: unset;
@@ -110,6 +114,6 @@ const Close = styled(RadixDialog.Close)`
   &:hover {
     cursor: pointer;
   }
-`;
+`
 
-export default Dialog;
+export default Dialog

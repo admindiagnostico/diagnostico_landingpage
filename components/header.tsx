@@ -1,4 +1,3 @@
-// se ve perfecto pero se queja al compilar  Error: Missing "key" prop for element in iterator  react/jsx-key
 // import { ThemeToggle } from '@/components/theme-toggle'
 // import { Button } from '@/components/ui/button'
 // import {
@@ -12,20 +11,14 @@
 // import { Menu, MoveRight, X } from 'lucide-react'
 // import { useState } from 'react'
 // import Link from 'next/link'
-// import SearchCta from '@/components/CommandBar/SearchCta'
 // import styled from 'styled-components'
 // import CommandBar from '@/components/CommandBar/CommandBar'
 
-// export default function Header() {
+// // export default function Header() { renombre yo ACA
+// export const Header1 = () => {
 //   const navigationItems = [
-//     // {
-//     //   title: "Inicio",
-//     //   href: "/",
-//     //   description: "",
-//     // },
 //     {
 //       title: 'Servicios',
-//       // description: "Servicios prestados.",
 //       items: [
 //         {
 //           title: 'Anatomía Patológica',
@@ -65,16 +58,12 @@
 //       href: '/calidad',
 //       description: ''
 //     }
-//     // {
-//     //   title: "Trabajo",
-//     //   href: "/trabajo",
-//     //   description: "",
-//     // },
 //   ]
 
 //   const [isOpen, setOpen] = useState(false)
 //   return (
-//     <header className='sticky left-0 top-0 z-40 w-full bg-background'>
+//     // <header className='bg-background'>
+//     <header className='sticky left-0 top-0 z-40 w-full bg-transparent'>
 //       <div className='container relative mx-auto flex min-h-20 flex-row items-center gap-4 lg:grid lg:grid-cols-3'>
 //         <div className='hidden flex-row items-center justify-start gap-4 lg:flex'>
 //           <NavigationMenu className='flex items-start justify-start'>
@@ -104,14 +93,14 @@
 //                             <Button size='sm' className='mt-10'>
 //                               Contacto
 //                             </Button>
+//                             <div className='hidden border-r md:inline'></div>
 //                           </div>
 //                           <div className='flex h-full flex-col justify-end text-sm'>
 //                             {item.items?.map(subItem => (
-//                               <Link href={subItem.href}>
+//                               <Link href={subItem.href} key={subItem.title}>
 //                                 <NavigationMenuLink
 //                                   href={subItem.href}
-//                                   key={subItem.title}
-//                                   className='flex flex-row items-center justify-between rounded px-4 py-2 hover:bg-muted'
+//                                   className='py- flex flex-row items-center justify-between rounded px-4 hover:bg-muted'
 //                                 >
 //                                   <span>{subItem.title}</span>
 //                                   <MoveRight className='h-4 w-4 text-muted-foreground' />
@@ -135,23 +124,19 @@
 //           <Button variant='ghost' className='hidden md:inline'>
 //             Contacto
 //           </Button>
-
-//           {/* <StyledCta>
-//             <SearchCta />
-//           </StyledCta> */}
-
 //           <CommandBar>
-//             <SearchButton>
-//               <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
+//             <SearchButton className='size=icom'>
+//               <MagnifyingGlassIcon className='shrink-1 mr-2 h-4 w-4 opacity-50' />
 //               Busqueda
-//               <ShortcutHint>⌘ + K</ShortcutHint>
+//               <ShortcutHint className='pointer-events-none ml-14 inline-flex h-6 select-none items-center gap-1 rounded bg-muted px-2 font-mono text-[10px] font-medium text-muted-foreground opacity-100'>
+//                 ⌘ K
+//               </ShortcutHint>
 //             </SearchButton>
 //           </CommandBar>
-
 //           <div className='hidden border-r md:inline'></div>
 //           <Button variant='outline'>Ingresar</Button>
 //           {/* <Button>Get started</Button> */}
-//           <ThemeToggle />
+//           {/* <ThemeToggle /> */}
 //         </div>
 //         <div className='flex w-12 shrink items-end justify-end lg:hidden'>
 //           <Button variant='ghost' onClick={() => setOpen(!isOpen)}>
@@ -215,36 +200,39 @@
 //     font-size: 1.25rem;
 //   }
 // `
-
 // const SearchButton = styled.button`
 //   padding-left: 0.75rem; /* 12px */
 //   padding-right: 0.75rem; /* 12px */
 //   color: #9ca2af; /* Set text color to red with 50% opacity */
-
+//   white-space: nowrap;
 //   align-items: center;
 //   border-width: 1px; /* Default border width is 1px */
 //   border-bottom-style: solid; /* Default border style is solid */
 //   border-bottom-color: inherit; /* Inherit border color (You may replace 'inherit' with a specific color if needed) */
-//   display: flex;
-//   height: 2.5rem; /* 40px */
-//   width: 50%;
-//   border-radius: 0.375rem; /* 6px */
+//   display: inline-flex;
+//   height: 2.3rem; /* 40px */
+//   width: 100%;
+//   border-radius: 0.5rem; /* 6px */
 //   background-color: transparent;
 //   padding-top: 0.75rem; /* 12px */
 //   padding-bottom: 0.75rem; /* 12px */
+//   padding-right: 0.3rem;
 //   font-size: 0.875rem; /* 14px */
 //   line-height: 1.25rem; /* 20px */
-
 //   outline: none;
+
 //   :disabled {
 //     opacity: 0.5;
 //   }
+
 //   ::placeholder {
 //     color: #6b7280; /* example muted foreground color */
 //   }
 
 //   &:hover {
-//     background-color: #2c2c2c;
+//     background-color: var(
+//       --hover-bg
+//     ); /* Use CSS variable for hover background color */
 //   }
 
 //   &:focus {
@@ -252,7 +240,6 @@
 //     border-color: #555;
 //   }
 // `
-
 // const MagnifyingGlassIcon = ({ className }) => (
 //   <svg
 //     xmlns='http://www.w3.org/2000/svg'
@@ -270,12 +257,9 @@
 //   </svg>
 // )
 
-// const ShortcutHint = styled.span`
-//   margin-left: auto;
-//   font-size: 0.875rem;
-//   color: #999;
-// `
+// const ShortcutHint = styled.span``
 
+import React, { useState, useEffect } from 'react'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { Button } from '@/components/ui/button'
 import {
@@ -287,25 +271,17 @@ import {
   NavigationMenuTrigger
 } from '@/components/ui/navigation-menu'
 import { Menu, MoveRight, X } from 'lucide-react'
-import { useState } from 'react'
 import Link from 'next/link'
-import SearchCta from '@/components/CommandBar/SearchCta'
 import styled from 'styled-components'
 import CommandBar from '@/components/CommandBar/CommandBar'
 
-export default function Header() {
+export const Header1 = () => {
   const navigationItems = [
     {
       title: 'Servicios',
       items: [
-        {
-          title: 'Anatomía Patológica',
-          href: '/pages/servicios/anatomia'
-        },
-        {
-          title: 'Citología',
-          href: '/pages/servicios/citologia'
-        },
+        { title: 'Anatomía Patológica', href: '/pages/servicios/anatomia' },
+        { title: 'Citología', href: '/pages/servicios/citologia' },
         {
           title: 'Inmunohistoquímica',
           href: '/pages/servicios/inmunohistoquimica'
@@ -316,31 +292,50 @@ export default function Header() {
         }
       ]
     },
-    {
-      title: 'Novedades',
-      href: '/novedades',
-      description: ''
-    },
-    {
-      title: 'Resultados',
-      href: '/resultados',
-      description: ''
-    },
-    {
-      title: '¿Quiénes somos?',
-      href: '/quienes-somos',
-      description: ''
-    },
-    {
-      title: 'Calidad',
-      href: '/calidad',
-      description: ''
-    }
+    { title: 'Novedades', href: '/novedades', description: '' },
+    { title: 'Resultados', href: '/resultados', description: '' },
+    { title: '¿Quiénes somos?', href: '/quienes-somos', description: '' },
+    { title: 'Calidad', href: '/calidad', description: '' }
   ]
 
   const [isOpen, setOpen] = useState(false)
+  const [show, setShow] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
+
+  const controlNavbar = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId)
+    }
+
+    if (window.scrollY > lastScrollY) {
+      // if scroll down hide the navbar
+      const newTimeoutId = setTimeout(() => {
+        setShow(false)
+      }, 600) // delay in milliseconds
+      setTimeoutId(newTimeoutId)
+    } else {
+      // if scroll up show the navbar
+      setShow(true)
+    }
+
+    // remember current page location to use in the next move
+    setLastScrollY(window.scrollY)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', controlNavbar)
+
+    // cleanup function
+    return () => {
+      window.removeEventListener('scroll', controlNavbar)
+    }
+  }, [lastScrollY])
+
   return (
-    <header className='sticky left-0 top-0 z-40 w-full bg-background'>
+    <header
+      className={`fixed left-0 top-0 z-40 w-full transition-transform duration-300 ${!show && '-translate-y-full transform'}`}
+    >
       <div className='container relative mx-auto flex min-h-20 flex-row items-center gap-4 lg:grid lg:grid-cols-3'>
         <div className='hidden flex-row items-center justify-start gap-4 lg:flex'>
           <NavigationMenu className='flex items-start justify-start'>
@@ -348,11 +343,9 @@ export default function Header() {
               {navigationItems.map(item => (
                 <NavigationMenuItem key={item.title}>
                   {item.href ? (
-                    <>
-                      <NavigationMenuLink>
-                        <Button variant='ghost'>{item.title}</Button>
-                      </NavigationMenuLink>
-                    </>
+                    <NavigationMenuLink>
+                      <Button variant='ghost'>{item.title}</Button>
+                    </NavigationMenuLink>
                   ) : (
                     <>
                       <NavigationMenuTrigger className='text-sm font-medium'>
@@ -370,13 +363,14 @@ export default function Header() {
                             <Button size='sm' className='mt-10'>
                               Contacto
                             </Button>
+                            <div className='hidden border-r md:inline'></div>
                           </div>
                           <div className='flex h-full flex-col justify-end text-sm'>
                             {item.items?.map(subItem => (
                               <Link href={subItem.href} key={subItem.title}>
                                 <NavigationMenuLink
                                   href={subItem.href}
-                                  className='flex flex-row items-center justify-between rounded px-4 py-2 hover:bg-muted'
+                                  className='py- flex flex-row items-center justify-between rounded px-4 hover:bg-muted'
                                 >
                                   <span>{subItem.title}</span>
                                   <MoveRight className='h-4 w-4 text-muted-foreground' />
@@ -400,23 +394,19 @@ export default function Header() {
           <Button variant='ghost' className='hidden md:inline'>
             Contacto
           </Button>
-
-          {/* <StyledCta>
-            <SearchCta />
-          </StyledCta> */}
-
           <CommandBar>
-            <SearchButton>
-              <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
+            <SearchButton className='size=icom'>
+              <MagnifyingGlassIcon className='shrink-1 mr-2 h-4 w-4 opacity-50' />
               Busqueda
-              <ShortcutHint>⌘ + K</ShortcutHint>
+              <ShortcutHint className='pointer-events-none ml-14 inline-flex h-6 select-none items-center gap-1 rounded bg-muted px-2 font-mono text-[10px] font-medium text-muted-foreground opacity-100'>
+                ⌘ K
+              </ShortcutHint>
             </SearchButton>
           </CommandBar>
-
           <div className='hidden border-r md:inline'></div>
           <Button variant='outline'>Ingresar</Button>
           {/* <Button>Get started</Button> */}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
         <div className='flex w-12 shrink items-end justify-end lg:hidden'>
           <Button variant='ghost' onClick={() => setOpen(!isOpen)}>
@@ -485,31 +475,35 @@ const SearchButton = styled.button`
   padding-left: 0.75rem; /* 12px */
   padding-right: 0.75rem; /* 12px */
   color: #9ca2af; /* Set text color to red with 50% opacity */
-
+  white-space: nowrap;
   align-items: center;
   border-width: 1px; /* Default border width is 1px */
   border-bottom-style: solid; /* Default border style is solid */
   border-bottom-color: inherit; /* Inherit border color (You may replace 'inherit' with a specific color if needed) */
-  display: flex;
-  height: 2.5rem; /* 40px */
-  width: 50%;
-  border-radius: 0.375rem; /* 6px */
+  display: inline-flex;
+  height: 2.3rem; /* 40px */
+  width: 100%;
+  border-radius: 0.5rem; /* 6px */
   background-color: transparent;
   padding-top: 0.75rem; /* 12px */
   padding-bottom: 0.75rem; /* 12px */
+  padding-right: 0.3rem;
   font-size: 0.875rem; /* 14px */
   line-height: 1.25rem; /* 20px */
-
   outline: none;
+
   :disabled {
     opacity: 0.5;
   }
+
   ::placeholder {
     color: #6b7280; /* example muted foreground color */
   }
 
   &:hover {
-    background-color: #2c2c2c;
+    background-color: var(
+      --hover-bg
+    ); /* Use CSS variable for hover background color */
   }
 
   &:focus {
@@ -535,8 +529,4 @@ const MagnifyingGlassIcon = ({ className }) => (
   </svg>
 )
 
-const ShortcutHint = styled.span`
-  margin-left: auto;
-  font-size: 0.875rem;
-  color: #999;
-`
+const ShortcutHint = styled.span``

@@ -66,8 +66,9 @@ const CommandBar = ({ children }) => {
       srDescription='Find content by searching, or follow navigation links.'
       trigger={children}
     >
-      <div className='rounded-lg border shadow-md'>
-        <div className='flex items-center border-b px-3'>
+      {/* ANIBAL: esto lo hice para que el header1 estuviera blured */}
+      <div className='rounded-lg border border-slate-700 shadow-md'>
+        <div className='flex items-center border-b border-slate-700 px-3'>
           <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
           <input
             type='text'

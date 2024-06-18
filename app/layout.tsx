@@ -2,7 +2,7 @@
 
 import { Inter } from 'next/font/google'
 import { useEffect } from 'react'
-import Header from '@/components/header'
+// import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -63,10 +63,10 @@ export default function RootLayout({
         <ThemeProvider
           enableSystem
           attribute='class'
-          defaultTheme='system'
+          defaultTheme='dark'
           disableTransitionOnChange
         >
-          <Header />
+          {/* <Header /> */}
           <main className='grow'>{children}</main>
           <Footer />
         </ThemeProvider>
