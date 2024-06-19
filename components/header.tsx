@@ -1,3 +1,4 @@
+// import React, { useState, useEffect } from 'react'
 // import { ThemeToggle } from '@/components/theme-toggle'
 // import { Button } from '@/components/ui/button'
 // import {
@@ -9,25 +10,17 @@
 //   NavigationMenuTrigger
 // } from '@/components/ui/navigation-menu'
 // import { Menu, MoveRight, X } from 'lucide-react'
-// import { useState } from 'react'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 // import CommandBar from '@/components/CommandBar/CommandBar'
 
-// // export default function Header() { renombre yo ACA
 // export const Header1 = () => {
 //   const navigationItems = [
 //     {
 //       title: 'Servicios',
 //       items: [
-//         {
-//           title: 'Anatomía Patológica',
-//           href: '/pages/servicios/anatomia'
-//         },
-//         {
-//           title: 'Citología',
-//           href: '/pages/servicios/citologia'
-//         },
+//         { title: 'Anatomía Patológica', href: '/pages/servicios/anatomia' },
+//         { title: 'Citología', href: '/pages/servicios/citologia' },
 //         {
 //           title: 'Inmunohistoquímica',
 //           href: '/pages/servicios/inmunohistoquimica'
@@ -38,32 +31,50 @@
 //         }
 //       ]
 //     },
-//     {
-//       title: 'Novedades',
-//       href: '/novedades',
-//       description: ''
-//     },
-//     {
-//       title: 'Resultados',
-//       href: '/resultados',
-//       description: ''
-//     },
-//     {
-//       title: '¿Quiénes somos?',
-//       href: '/quienes-somos',
-//       description: ''
-//     },
-//     {
-//       title: 'Calidad',
-//       href: '/calidad',
-//       description: ''
-//     }
+//     { title: 'Novedades', href: '/novedades', description: '' },
+//     { title: 'Resultados', href: '/resultados', description: '' },
+//     { title: '¿Quiénes somos?', href: '/quienes-somos', description: '' },
+//     { title: 'Calidad', href: '/calidad', description: '' }
 //   ]
 
 //   const [isOpen, setOpen] = useState(false)
+//   const [show, setShow] = useState(true)
+//   const [lastScrollY, setLastScrollY] = useState(0)
+//   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
+
+//   const controlNavbar = () => {
+//     if (timeoutId) {
+//       clearTimeout(timeoutId)
+//     }
+
+//     if (window.scrollY > lastScrollY) {
+//       // if scroll down hide the navbar
+//       const newTimeoutId = setTimeout(() => {
+//         setShow(false)
+//       }, 600) // delay in milliseconds
+//       setTimeoutId(newTimeoutId)
+//     } else {
+//       // if scroll up show the navbar
+//       setShow(true)
+//     }
+
+//     // remember current page location to use in the next move
+//     setLastScrollY(window.scrollY)
+//   }
+
+//   useEffect(() => {
+//     window.addEventListener('scroll', controlNavbar)
+
+//     // cleanup function
+//     return () => {
+//       window.removeEventListener('scroll', controlNavbar)
+//     }
+//   }, [lastScrollY])
+
 //   return (
-//     // <header className='bg-background'>
-//     <header className='sticky left-0 top-0 z-40 w-full bg-transparent'>
+//     <header
+//       className={`fixed left-0 top-0 z-40 w-full transition-transform duration-300 ${!show && '-translate-y-full transform'}`}
+//     >
 //       <div className='container relative mx-auto flex min-h-20 flex-row items-center gap-4 lg:grid lg:grid-cols-3'>
 //         <div className='hidden flex-row items-center justify-start gap-4 lg:flex'>
 //           <NavigationMenu className='flex items-start justify-start'>
@@ -71,11 +82,9 @@
 //               {navigationItems.map(item => (
 //                 <NavigationMenuItem key={item.title}>
 //                   {item.href ? (
-//                     <>
-//                       <NavigationMenuLink>
-//                         <Button variant='ghost'>{item.title}</Button>
-//                       </NavigationMenuLink>
-//                     </>
+//                     <NavigationMenuLink>
+//                       <Button variant='ghost'>{item.title}</Button>
+//                     </NavigationMenuLink>
 //                   ) : (
 //                     <>
 //                       <NavigationMenuTrigger className='text-sm font-medium'>
@@ -200,6 +209,7 @@
 //     font-size: 1.25rem;
 //   }
 // `
+
 // const SearchButton = styled.button`
 //   padding-left: 0.75rem; /* 12px */
 //   padding-right: 0.75rem; /* 12px */
@@ -240,6 +250,7 @@
 //     border-color: #555;
 //   }
 // `
+
 // const MagnifyingGlassIcon = ({ className }) => (
 //   <svg
 //     xmlns='http://www.w3.org/2000/svg'
@@ -258,7 +269,6 @@
 // )
 
 // const ShortcutHint = styled.span``
-
 import React, { useState, useEffect } from 'react'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { Button } from '@/components/ui/button'
@@ -309,28 +319,24 @@ export const Header1 = () => {
     }
 
     if (window.scrollY > lastScrollY) {
-      // if scroll down hide the navbar
       const newTimeoutId = setTimeout(() => {
         setShow(false)
       }, 600) // delay in milliseconds
       setTimeoutId(newTimeoutId)
     } else {
-      // if scroll up show the navbar
       setShow(true)
     }
 
-    // remember current page location to use in the next move
     setLastScrollY(window.scrollY)
   }
 
   useEffect(() => {
     window.addEventListener('scroll', controlNavbar)
 
-    // cleanup function
     return () => {
       window.removeEventListener('scroll', controlNavbar)
     }
-  }, [lastScrollY])
+  }, [lastScrollY, timeoutId])
 
   return (
     <header
@@ -370,7 +376,7 @@ export const Header1 = () => {
                               <Link href={subItem.href} key={subItem.title}>
                                 <NavigationMenuLink
                                   href={subItem.href}
-                                  className='py- flex flex-row items-center justify-between rounded px-4 hover:bg-muted'
+                                  className='flex flex-row items-center justify-between rounded px-4 py-1 hover:bg-muted'
                                 >
                                   <span>{subItem.title}</span>
                                   <MoveRight className='h-4 w-4 text-muted-foreground' />
@@ -395,7 +401,7 @@ export const Header1 = () => {
             Contacto
           </Button>
           <CommandBar>
-            <SearchButton className='size=icom'>
+            <SearchButton>
               <MagnifyingGlassIcon className='shrink-1 mr-2 h-4 w-4 opacity-50' />
               Busqueda
               <ShortcutHint className='pointer-events-none ml-14 inline-flex h-6 select-none items-center gap-1 rounded bg-muted px-2 font-mono text-[10px] font-medium text-muted-foreground opacity-100'>
@@ -491,6 +497,19 @@ const SearchButton = styled.button`
   font-size: 0.875rem; /* 14px */
   line-height: 1.25rem; /* 20px */
   outline: none;
+
+  @media (max-width: 768px) {
+    display: none; /* Hide the search button on small screens */
+    width: auto; /* For medium screens and up */
+    margin-left: 0.5rem; /* Add margin-left for spacing */
+    background-color: #030816; /* Use a light gray background color */
+  }
+
+  @media (max-width: 1024px) {
+    width: auto; /* For medium screens and up */
+    margin-left: 0.5rem; /* Add margin-left for spacing */
+    background-color: #030816; /* Use a light gray background color */
+  }
 
   :disabled {
     opacity: 0.5;

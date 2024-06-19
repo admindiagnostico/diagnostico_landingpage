@@ -54,9 +54,9 @@ export default function Home() {
             duration: 0.8,
             ease: 'easeInOut'
           }}
-          className='mt-5 flex flex-col items-center bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text py-2 tracking-tight text-transparent md:mt-0 md:text-4xl lg:text-2xl'
+          className='md: mt-5 flex flex-col items-center bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text py-2 tracking-tight text-transparent md:mt-0 md:text-4xl lg:text-2xl'
         >
-          <p>Laboratorio de Anatomía Patológica</p>
+          <p>Laboratorio de Anatomía Paaaatológica</p>
           <Button className='mt-8 text-white' variant='outline'>
             Contacto
           </Button>
