@@ -18,6 +18,10 @@ const config = {
       }
     },
     extend: {
+      backdropFilter: {
+        none: 'none',
+        blur: 'blur(10px)'
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -27,10 +31,6 @@ const config = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
-        },
-        gray: {
-          200: '#f3f4f8', // Light mode hover color
-          800: '#21293a' // Dark mode hover color
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
@@ -62,19 +62,6 @@ const config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
-      height: {
-        '1/2vh': '50vh',
-        '1/4vh': '25vh',
-        '128': '32rem', // Example: Custom height
-        '144': '36rem' // Another custom height
-      },
-      margin: {
-        '1/4vh': '25vh', // Adding these custom values
-        full: '100vh', // Example: Full viewport height margin
-        '1/2': '50%', // Example: Half of the parent element
-        '1/3': '33.333333%', // One third of the parent element
-        '1/4': '25%' // One quarter of the parent element
-      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
@@ -91,7 +78,17 @@ const config = {
       }
     }
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [
+    require('tailwindcss-animate'),
+    function ({ addUtilities }) {
+      addUtilities({
+        '.bg-blur': {
+          background: 'transparent',
+          backdropFilter: 'blur(10px)'
+        }
+      })
+    }
+  ]
 } satisfies Config
 
 export default config
