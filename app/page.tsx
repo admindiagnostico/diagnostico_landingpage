@@ -11,6 +11,8 @@ import { FAQ1 } from '@/components/blocks/faq/faq1'
 import { SparklesCore } from '@/components/ui/sparkles'
 import { useMediaQuery } from 'react-responsive'
 import { Button } from '@/components/ui/button'
+import { Testimonials1 } from '@/components/blocks/gallery/Testimonials1'
+import { Feature2 } from '@/components/blocks/feature/feature2'
 
 export default function Home() {
   const isMediumDevice = useMediaQuery({ query: '(min-width: 768px)' })
@@ -72,6 +74,7 @@ export default function Home() {
       </LampContainer>
       <Hero4 />
       <Feature6 />
+      <Testimonials1 />
       <FAQ1 />
     </>
   )

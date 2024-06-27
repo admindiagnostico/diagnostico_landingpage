@@ -10,6 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import { LayoutTransition } from '@/components/layout-transition'
 
 function page() {
   return (
@@ -30,15 +31,15 @@ function page() {
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <div className='flex w-full flex-col sm:flex-row sm:justify-between sm:items-center gap-8'>
-          <h4 className='text-3xl md:text-5xl tracking-tighter max-w-xl font-regular'>
+        <div className='flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between'>
+          <h4 className='font-regular max-w-xl text-3xl tracking-tighter md:text-5xl'>
             Anatomía Patológica
           </h4>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-          <div className='flex flex-col gap-4  md:col-span-2'>
+        <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+          <div className='flex flex-col gap-4 md:col-span-2'>
             <div className='flex flex-col gap-2'>
-              <p className='max-w-3xl text-muted-foreground text-base'>
+              <p className='max-w-3xl text-base text-muted-foreground'>
                 En DIAGNOSTICO SRL estamos comprometidos en brindarle el mejor
                 servicio posible. Disponemos de la experiencia, recursos y
                 tecnología para atenderle.<br></br>

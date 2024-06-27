@@ -1,12 +1,11 @@
 'use client'
-
 import { Inter } from 'next/font/google'
 import { useEffect } from 'react'
-// import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
-
+import { LayoutTransition } from '@/components/layout-transition' // Import the new component
 import './globals.css'
+
 const inter = Inter({ subsets: ['latin'] })
 
 declare global {
@@ -66,8 +65,14 @@ export default function RootLayout({
           defaultTheme='dark'
           disableTransitionOnChange
         >
-          {/* <Header /> */}
-          <main className='grow'>{children}</main>
+          <LayoutTransition
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            <main className='grow'>{children}</main>
+          </LayoutTransition>
           <Footer />
         </ThemeProvider>
       </body>

@@ -9,6 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import { LayoutTransition } from '@/components/layout-transition'
 
 function page() {
   return (
