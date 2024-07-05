@@ -1,7 +1,7 @@
-// Custom Blog2 content. Hice un rfce y luego dentro del return () puse el contenido
+'use client'
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
+import React from 'react'
+import Link from 'next/link'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,53 +10,31 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-import { LayoutTransition } from '@/components/layout-transition'
+import Blog2 from '@/components/blocks/blog/blog2'
+import { Spotlight } from '@/components/ui/Spotlight'
 
-function page() {
+function Page() {
   return (
     <div className='w-full py-20 lg:py-40'>
+      <Spotlight className='right-0 top-1' />
       <div className='container mx-auto flex flex-col gap-14'>
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href='/'>Inicio</BreadcrumbLink>
+              <Link href='/' passHref legacyBehavior>
+                <BreadcrumbLink>Inicio</BreadcrumbLink>
+              </Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href='/'>Servicios</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Anatomía Patológica</BreadcrumbPage>
+              <BreadcrumbPage>¿Quiénes somos?</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <div className='flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between'>
-          <h4 className='font-regular max-w-xl text-3xl tracking-tighter md:text-5xl'>
-            Anatomía Patológica
-          </h4>
-        </div>
-        <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
-          <div className='flex flex-col gap-4 md:col-span-2'>
-            <div className='flex flex-col gap-2'>
-              <p className='max-w-3xl text-base text-muted-foreground'>
-                En DIAGNOSTICO SRL estamos comprometidos en brindarle el mejor
-                servicio posible. Disponemos de la experiencia, recursos y
-                tecnología para atenderle.<br></br>
-                <br></br> Dentro de nuestro personal, contamos con profesionales
-                altamente entrenados, con dedicación completa para brindar
-                atención profesional personalizada, de forma agradable y
-                eficiente. <br></br>
-                <br></br>Ofrecemos estudio de anatomía patológica convencional,
-                con finalidad diagnóstica y pronóstica, siguiendo las
-                recomendaciones internacionales actualizadas.
-              </p>
-            </div>
-          </div>
-        </div>
+        <Blog2 />
       </div>
     </div>
   )
 }
 
-export default page
+export default Page

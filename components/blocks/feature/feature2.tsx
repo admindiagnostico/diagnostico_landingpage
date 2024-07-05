@@ -12,6 +12,8 @@ export const Feature2 = () => (
       </h2>
       <div className='max-w-xl text-lg leading-relaxed tracking-tight text-muted-foreground lg:max-w-xl'>
         <p className='mb-4'>
+          {' '}
+          <br></br>
           Somos un laboratorio dedicado a los pacientes, que requieren de un
           diagnóstico patológico, preciso, actualizado y rápido.
         </p>

@@ -11,10 +11,12 @@ import {
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
 import { Feature2 } from '@/components/blocks/feature/feature2'
+import { Spotlight } from '@/components/ui/Spotlight'
 
 function Page() {
   return (
     <div className='w-full py-20 lg:py-40'>
+      <Spotlight className='right-0 top-1' />
       <div className='container mx-auto flex flex-col gap-14'>
         <Breadcrumb>
           <BreadcrumbList>
