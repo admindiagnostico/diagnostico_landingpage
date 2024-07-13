@@ -1,7 +1,4 @@
-// Custom Blog2 content. Hice un rfce y luego dentro del return () puse el contenido
-
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
+import React from 'react'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,7 +8,7 @@ import {
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
 
-function page() {
+function Page() {
   return (
     <div className='w-full py-20 lg:py-40'>
       <div className='container mx-auto flex flex-col gap-14'>
@@ -26,30 +23,51 @@ function page() {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Anatomía Patológica</BreadcrumbPage>
+              <BreadcrumbPage>Citología</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <div className='flex w-full flex-col sm:flex-row sm:justify-between sm:items-center gap-8'>
-          <h4 className='text-3xl md:text-5xl tracking-tighter max-w-xl font-regular'>
-            Anatomía Patológica
+        <div className='flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between'>
+          <h4 className='font-regular max-w-xl text-3xl tracking-tighter md:text-5xl'>
+            Citología
           </h4>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-          <div className='flex flex-col gap-4  md:col-span-2'>
+        <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
+          <div className='flex flex-col gap-4 md:col-span-2'>
             <div className='flex flex-col gap-2'>
-              <p className='max-w-3xl text-muted-foreground text-base'>
-                En DIAGNOSTICO SRL estamos comprometidos en brindarle el mejor
-                servicio posible. Disponemos de la experiencia, recursos y
-                tecnología para atenderle.<br></br>
-                <br></br> Dentro de nuestro personal, contamos con profesionales
-                altamente entrenados, con dedicación completa para brindar
-                atención profesional personalizada, de forma agradable y
-                eficiente. <br></br>
-                <br></br>Ofrecemos estudio de anatomía patológica convencional,
-                con finalidad diagnóstica y pronóstica, siguiendo las
-                recomendaciones internacionales actualizadas.
+              <p className='max-w-3xl text-base text-muted-foreground'>
+                En DIAGNOSTICO SRL ofrecemos estudio citológico de tomas
+                realizadas en distintas topografias, incluyendo muestras de
+                citología urinaria.
+                <br />
+                <br />
+                Las muestras de orina, deben colectarse segun instructivo abajo
+                y son evaluadas por patologa especialista en trato urogenital
+                masculino.
               </p>
+              <ul className='max-w-3xl list-disc pl-6 text-base text-muted-foreground'>
+                <li>Descartar la primera orina de la mañana</li>
+                <li>
+                  Beber abundante líquido (1,5 litros) durante 2 a 3 horas
+                </li>
+                <li>
+                  Recolectar la orina de la segunda micción de la mañana en
+                  frasco estéril y cerrado herméticamente.
+                </li>
+                <li>
+                  Realizar previamente una buena higiene del área
+                  genito-urinaria. Después de orinar una pequeña cantidad dentro
+                  del inodoro, para limpiar la uretra, se recoge un volumen de
+                  orina en el frasco estéril (minimo necesario son 30 ml), se
+                  retira el recipiente del chorro sin dejar de orinar y se
+                  termina la micción en el inodoro.
+                </li>
+                <li>
+                  La muestra con nombre del paciente y solicitud de estudio debe
+                  ser llevada inmediatamente al laboratorio, para evitar
+                  degradación celular.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -58,4 +76,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

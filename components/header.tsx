@@ -32,7 +32,7 @@ export const Header1 = () => {
       ]
     },
     { title: 'Novedades', href: '/novedades', description: '' },
-    { title: 'Resultados', href: '/resultados', description: '' },
+    { title: 'Resultados', href: '/pages/resultados', description: '' },
     {
       title: '¿Quiénes somos?',
       href: '/pages/quienes-somos',
@@ -135,9 +135,16 @@ export const Header1 = () => {
                                 {item.description}
                               </p>
                             </div>
-                            <Button size='sm' className='mt-10'>
-                              Contacto
-                            </Button>
+                            <Link
+                              href='/pages/contacto'
+                              passHref
+                              legacyBehavior
+                            >
+                              <Button size='sm' className='mt-10'>
+                                Contacto
+                              </Button>
+                            </Link>
+
                             <div className='hidden border-r md:inline'></div>
                           </div>
                           <div className='flex h-full flex-col justify-end text-sm'>
@@ -166,9 +173,11 @@ export const Header1 = () => {
           {/* <p className="font-semibold"> </p> */}
         </div>
         <div className='flex w-full items-center justify-end gap-4'>
-          <Button variant='ghost' className='hidden md:inline'>
-            Contacto
-          </Button>
+          <Link href='/pages/contacto' passHref legacyBehavior>
+            <Button variant='ghost' className='hidden md:inline'>
+              Contacto
+            </Button>
+          </Link>
           <CommandBar>
             <SearchButton>
               <MagnifyingGlassIcon className='shrink-1 mr-2 h-4 w-4 opacity-50' />
