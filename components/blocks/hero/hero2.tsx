@@ -8,7 +8,7 @@ export const Hero2 = () => (
     <div className='container mx-auto'>
       <div className='flex flex-col items-center justify-center gap-8 py-20 lg:py-40'>
         <div>
-          <Badge variant='default'>We&apos;re live!</Badge>
+          <Badge variant='default'>Acceso exclusivo</Badge>
         </div>
         <div className='flex flex-col gap-4'>
           <p className='max-w-2xl text-center text-lg leading-relaxed tracking-tight text-muted-foreground md:text-xl'>
@@ -17,7 +17,7 @@ export const Hero2 = () => (
           </p>
         </div>
         <div className='flex flex-row gap-3'>
-          <Link href='https://www.google.com' passHref>
+          <Link href='http://diagnosticosrl.com.uy' passHref>
             <Button size='lg' className='gap-4' variant='outline'>
               Ingreso <MoveRight className='h-4 w-4' />
             </Button>

@@ -6,33 +6,52 @@ const Nav = ({ handleClick }) => {
     <StyledNav>
       <ul>
         <li>
-          <StyledNavLink href='/garden' onClick={handleClick}>
-            Garden
+          <StyledNavLink href='/pages/servicios/anatomia' onClick={handleClick}>
+            Anatomía Patológica
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink href='/about' onClick={handleClick}>
-            About
+          <StyledNavLink
+            href='/pages/servicios/citologia'
+            onClick={handleClick}
+          >
+            Citología
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink href='/talks' onClick={handleClick}>
-            Talks
+          <StyledNavLink
+            href='/pages/servicios/inmunohistoquimica'
+            onClick={handleClick}
+          >
+            Inmunohistoquimíca
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink href='/art' onClick={handleClick}>
-            Art
+          <StyledNavLink
+            href='/pages/servicios/biologia_molecular'
+            onClick={handleClick}
+          >
+            Biología Molecular
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink href='/wishlist' onClick={handleClick}>
-            Wishlist
+          <StyledNavLink href='/novedades' onClick={handleClick}>
+            Novedades
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink href='/blogroll' onClick={handleClick}>
-            Blogroll
+          <StyledNavLink href='/pages/resultados' onClick={handleClick}>
+            Resultados
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink href='/pages/quiene-somos' onClick={handleClick}>
+            ¿Quiénes somos?
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink href='/pages/calidad' onClick={handleClick}>
+            Calidad
           </StyledNavLink>
         </li>
       </ul>

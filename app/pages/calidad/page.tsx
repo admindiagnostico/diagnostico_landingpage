@@ -31,11 +31,11 @@ export default function CalidadPage() {
         <div className='flex flex-col gap-10 lg:flex-row lg:items-center'>
           <div className='flex flex-col gap-4 lg:w-2/3'>
             <div>
-              <Badge>Platform</Badge>
+              <Badge>Gestión de la calidad</Badge>
             </div>
             <div className='flex flex-col gap-2'>
               <h2 className='font-regular text-left text-xl tracking-tighter md:text-3xl md:text-5xl lg:max-w-xl'>
-                This is the start of something new<br></br>
+                Compromiso<br></br>
                 <br></br>
               </h2>
               <p className='max-w-xl text-left text-lg leading-relaxed tracking-tight text-muted-foreground'>

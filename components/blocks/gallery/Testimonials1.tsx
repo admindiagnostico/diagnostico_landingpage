@@ -152,7 +152,8 @@ export const Testimonials1 = () => {
       <div className='container mx-auto'>
         <div className='flex flex-col gap-10'>
           <h2 className='font-regular text-left text-3xl tracking-tighter md:text-5xl lg:max-w-xl'>
-            Trusted by thousands of businesses worldwide
+            Primamos la actualización del conocimiento y la renovación
+            tecnológica.
           </h2>
           <div className='relative w-full'>
             <div className='absolute bottom-0 left-0 right-0 top-0 z-10 h-full w-full bg-gradient-to-r from-background via-white/0 to-background'></div>

@@ -72,7 +72,7 @@ const CommandBar = ({ children }) => {
           <MagnifyingGlassIcon className='mr-2 h-4 w-4 shrink-0 opacity-50' />
           <input
             type='text'
-            placeholder='Typeeee a command or search...'
+            placeholder='Hacer busqueda.'
             value={query}
             onChange={e => setQuery(e.target.value)}
             onInput={handleSearch}
@@ -120,9 +120,15 @@ const ResultRow = ({ result, handleClick }) => {
       console.log('Result data fetched:', data)
       setData(data)
 
-      const path = data.url.match(/\/([^/]+)\.html$/)
-      const url = path ? path[1] : ''
-      setUrl(url)
+      let generatedUrl = ''
+      if (data.url.includes('/servicios/')) {
+        const match = data.url.match(/\/servicios\/([^/]+)\.html$/)
+        generatedUrl = match ? `/pages/servicios/${match[1]}` : ''
+      } else {
+        const match = data.url.match(/\/([^/]+)\.html$/)
+        generatedUrl = match ? `/pages/${match[1]}` : ''
+      }
+      setUrl(generatedUrl)
     }
 
     fetchData()

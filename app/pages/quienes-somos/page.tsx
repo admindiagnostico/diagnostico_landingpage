@@ -16,7 +16,7 @@ import { Spotlight } from '@/components/ui/Spotlight'
 function Page() {
   return (
     <div className='w-full py-20 lg:py-40'>
-      <Spotlight className='right-0 top-1' />
+      <Spotlight className='left-1 top-1 lg:right-0' />
       <div className='container mx-auto flex flex-col gap-14'>
         <Breadcrumb>
           <BreadcrumbList>

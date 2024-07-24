@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://petemillspaugh.com/pages/calidad</loc><lastmod>2024-07-05T17:57:24.177Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://petemillspaugh.com/pages/quienes-somos</loc><lastmod>2024-07-05T17:57:24.177Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://petemillspaugh.com/pages/servicios/citologia</loc><lastmod>2024-07-05T17:57:24.177Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://petemillspaugh.com/pages/servicios/anatomia</loc><lastmod>2024-07-05T17:57:24.177Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://petemillspaugh.com/pages/servicios/inmunohistoquimica</loc><lastmod>2024-07-05T17:57:24.177Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://petemillspaugh.com</loc><lastmod>2024-07-05T17:57:24.177Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://petemillspaugh.com/pages/servicios/biologia_molecular</loc><lastmod>2024-07-05T17:57:24.177Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy/pages/servicios/biologia_molecular</loc><lastmod>2024-07-24T17:35:05.464Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy/pages/servicios/citologia</loc><lastmod>2024-07-24T17:35:05.465Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy/pages/servicios/inmunohistoquimica</loc><lastmod>2024-07-24T17:35:05.465Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy/pages/resultados</loc><lastmod>2024-07-24T17:35:05.465Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy/pages/quienes-somos</loc><lastmod>2024-07-24T17:35:05.465Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy/pages/calidad</loc><lastmod>2024-07-24T17:35:05.465Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy/pages/servicios/anatomia</loc><lastmod>2024-07-24T17:35:05.465Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy/pages/contacto</loc><lastmod>2024-07-24T17:35:05.465Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://diagnosticosrl.com.uy</loc><lastmod>2024-07-24T17:35:05.465Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

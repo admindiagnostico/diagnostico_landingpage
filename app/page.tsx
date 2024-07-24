@@ -47,9 +47,11 @@ export default function Home() {
             duration: 0.8,
             ease: 'easeInOut'
           }}
-          className='mt-10 flex flex-col items-center bg-gradient-to-br from-slate-100 to-slate-400 bg-clip-text py-4 text-5xl font-medium tracking-tight text-transparent sm:text-5xl md:mt-1 md:text-6xl lg:text-7xl'
+          className='mt-5 flex flex-col items-center py-4 text-5xl tracking-tight sm:text-5xl md:mt-1 md:text-6xl lg:text-7xl'
         >
-          Diagnostico SRL
+          <h1 className='font-regular max-w-lg text-left text-5xl tracking-tighter md:text-7xl'>
+            Diagnostico SRL
+          </h1>
         </motion.div>
         <motion.div
           initial={initialValues}
@@ -59,9 +61,11 @@ export default function Home() {
             duration: 0.8,
             ease: 'easeInOut'
           }}
-          className='mt-5 flex flex-col items-center bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text py-2 text-xl leading-relaxed tracking-tight text-muted-foreground sm:text-xl md:mt-0 md:text-2xl lg:text-3xl'
+          className='font-regular mt-5 flex flex-col items-center bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text py-2 text-xl leading-relaxed tracking-tight text-muted-foreground sm:text-xl md:mt-0 md:text-2xl lg:text-3xl'
         >
-          <p>Laboratorio de Anatomía Patológica</p>
+          <p className='max-w-md text-left text-xl leading-relaxed tracking-tight text-muted-foreground'>
+            Laboratorio de Anatomía Patológica
+          </p>
           <Link href='/pages/contacto' passHref legacyBehavior>
             <Button className='mt-8 text-white' variant='outline'>
               Contacto

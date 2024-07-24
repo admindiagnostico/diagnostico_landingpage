@@ -31,7 +31,11 @@ export const Header1 = () => {
         }
       ]
     },
-    { title: 'Novedades', href: '/novedades', description: '' },
+    {
+      title: 'Novedades',
+      href: 'https://my-outstatic-blog-beta.vercel.app',
+      description: ''
+    },
     { title: 'Resultados', href: '/pages/resultados', description: '' },
     {
       title: '¿Quiénes somos?',

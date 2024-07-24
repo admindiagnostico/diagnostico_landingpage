@@ -1,55 +1,63 @@
-import { Check, PhoneCall } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Check, PhoneCall, User } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+  AccordionTrigger
+} from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export const FAQ1 = () => (
-  <div className="w-full py-20 lg:py-40">
-    <div className="container mx-auto">
-      <div className="grid lg:grid-cols-2 gap-10">
-        <div className="flex gap-10 flex-col">
-          <div className="flex gap-4 flex-col">
+  <div className='w-full py-20 lg:py-40'>
+    <div className='container mx-auto'>
+      <div className='grid gap-10 lg:grid-cols-2'>
+        <div className='flex flex-col gap-10'>
+          <div className='flex flex-col gap-4'>
             <div>
-              <Badge variant="outline">FAQ</Badge>
+              <Badge variant='outline'>FAQ</Badge>
             </div>
-            <div className="flex gap-2 flex-col">
-              <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left font-regular">
+            <div className='flex flex-col gap-2'>
+              <h4 className='font-regular max-w-xl text-left text-3xl tracking-tighter md:text-5xl'>
                 Preguntas frecuentes
               </h4>
-              <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground  text-left">
+              {/* <p className='max-w-xl text-left text-lg leading-relaxed tracking-tight text-muted-foreground lg:max-w-lg'>
                 Managing a small business today is already tough. Avoid further
                 complications by ditching outdated, tedious trade methods. Our
                 goal is to streamline SMB trade, making it easier and faster
                 than ever.
-              </p>
+              </p> */}
             </div>
-            <div className="">
-              <Button className="gap-4" variant="outline">
-                Any questions? Reach out <PhoneCall className="w-4 h-4" />
-              </Button>
+            <div className=''>
+              <Link href='/pages/contacto' passHref legacyBehavior>
+                <Button className='gap-4' variant='outline'>
+                  ¿Mas preguntas? Contactenos <User className='h-4 w-4' />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type='single' collapsible className='w-full'>
           {Array.from({ length: 1 }).map((_, index) => (
-            <AccordionItem key={index} value={"index-" + index}>
+            <AccordionItem key={index} value={'index-' + index}>
               <AccordionTrigger>
-                ¿Como deben enviarse las muestras?
+                ¿Cómo deben enviarse las muestras?
               </AccordionTrigger>
               <AccordionContent>
-                Managing a small business today is already tough. Avoid further
-                complications by ditching outdated, tedious trade methods. Our
-                goal is to streamline SMB trade, making it easier and faster
-                than ever.
+                Un buen diagnóstico depende del procesamiento de la muestra. El
+                primer paso, crucial, es la fijación adecuada del material. El
+                mismo debe ser colocado inmediatamente en el medio de fijación
+                luego de su extracción. Si el material se estropea durante el
+                proceso, es muy difícil el diagnóstico de rutina y puede hacer
+                imposible la aplicación de técnicas de alta complejidad que
+                requieren de una perfecta preservación del material. El fijador
+                de uso rutinario es formol al 10%, preferentemente formol buffer
+                (tamponado).
               </AccordionContent>
             </AccordionItem>
           ))}
-          <AccordionItem key={1} value={"index-1"}>
+          <AccordionItem key={1} value={'index-1'}>
             <AccordionTrigger>
               ¿Cuanto tiempo puede permanecer el material en el fijador?
             </AccordionTrigger>
@@ -62,7 +70,7 @@ export const FAQ1 = () => (
               a 72hrs.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem key={2} value={"index-2"}>
+          <AccordionItem key={2} value={'index-2'}>
             <AccordionTrigger>
               ¿Por qué los informes demoran varios días?
             </AccordionTrigger>
@@ -71,9 +79,9 @@ export const FAQ1 = () => (
               muestras deben ser procesadas por el técnico hasta obtener un
               bloque de tejido que sea posible de cortar en un espesor de micras
               y luego colorearlo para poder ser observado a traves del
-              microscopio y definir la necesidad de técnicas especiales.{" "}
+              microscopio y definir la necesidad de técnicas especiales.{' '}
               <br></br>
-              <br></br>Otros factores que determinan los tiempos son: <br></br>{" "}
+              <br></br>Otros factores que determinan los tiempos son: <br></br>{' '}
               Tipo de muestra: citología, biopsia, pieza quirúrgica. <br></br>
               <br></br>
               Calidad de la muestra: algunas muestras como las que contienen
@@ -91,4 +99,4 @@ export const FAQ1 = () => (
       </div>
     </div>
   </div>
-);
+)

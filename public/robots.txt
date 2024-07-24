@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://petemillspaugh.com
+Host: https://diagnosticosrl.com.uy
 
 # Sitemaps
-Sitemap: https://petemillspaugh.com/sitemap.xml
+Sitemap: https://diagnosticosrl.com.uy/sitemap.xml
