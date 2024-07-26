@@ -38,7 +38,8 @@ export const Hero4 = () => {
                 Calidad y eficiencia en patología médica.
               </h1>
               <p className='max-w-md text-left text-xl leading-relaxed tracking-tight text-muted-foreground'>
-                Anatomía Patológica Inmunohistoquímica Citología
+                Anatomía Patológica - Inmunohistoquímica - Citología - Biologia
+                Molecular.
               </p>
             </div>
             {/* <div className='flex flex-row gap-4'>
